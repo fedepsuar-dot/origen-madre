@@ -500,7 +500,8 @@
     const isDelivery = fulfillmentDelivery.checked;
     const address = customerAddressInput.value.trim();
     let lines = [];
-    lines.push("¡Hola! Quiero hacer este pedido" + (name ? ` a nombre de ${name}` : "") + ":");
+    lines.push("Pedido - Origen Madre:");
+    if (name) lines.push(`Nombre: ${name}`);
     lines.push("");
     items.forEach((item) => {
       if (item.type === "combo") {
@@ -514,27 +515,15 @@
       }
     });
     lines.push("");
-    const subtotal = cartTotal();
-    const discount = discountAmount(subtotal);
-    if (appliedCoupon && discount > 0) {
-      lines.push(`Subtotal: ${formatPrice(subtotal)}`);
-      lines.push(`Cupón ${appliedCoupon.code}: -${formatPrice(discount)}`);
-      lines.push(`Total con descuento: ${formatPrice(subtotal - discount)}`);
-    } else {
-      lines.push(`Total estimado: ${formatPrice(subtotal)}`);
-    }
+    lines.push(`Total estimado: ${formatPrice(cartTotal())}`);
     lines.push("");
     if (isDelivery) {
-      lines.push("Modalidad: Delivery");
-      if (address) lines.push(`Dirección de entrega: ${address}`);
+      lines.push(address ? `Modalidad: Delivery - ${address}` : "Modalidad: Delivery");
     } else {
       lines.push("Modalidad: Retiro en el local");
-      lines.push(`Horario: ${PICKUP_HOURS}`);
     }
     lines.push("");
-    lines.push("Quedo atento/a a la confirmación del total y la hora de retiro. ¡Gracias!");
-    lines.push("");
-    lines.push("Los productos no incluyen IVA, si requiere factura A, avisar antes de realizar el pago.");
+    lines.push("Quedo atento/a a la confirmación del total");
     return lines.join("\n");
   }
 
