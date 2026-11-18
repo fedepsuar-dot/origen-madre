@@ -737,7 +737,7 @@ a { color: inherit; }
 }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 .site-header { background: var(--cream); color: var(--charcoal); border-bottom: 4px solid var(--maroon); }
-.brand-logo { height: 76px; width: auto; display: block; }
+.brand-logo { height: 64px; width: auto; display: block; }
 .header-inner { padding: 8px 20px; }
 .category-nav button { border: 1px solid rgba(42,34,32,0.3); color: var(--charcoal); }
 .category-nav button.active, .category-nav button:hover { background: var(--maroon); border-color: var(--maroon); color: var(--paper); }
@@ -746,5 +746,5 @@ a { color: inherit; }
 .add-btn:hover { background: var(--maroon-dark); }
 .add-btn.added { background: var(--green); }
 .combo-stamp { background: var(--charcoal); color: var(--paper); }
-.login-logo { height: 120px; width: auto; display: block; margin: 0 auto 8px; }
-@media (max-width: 640px) { .brand-logo { height: 58px; } }
+.login-logo { height: 72px; width: auto; display: block; margin: 0 auto 8px; }
+@media (max-width: 640px) { .brand-logo { height: 48px; } }
